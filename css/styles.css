@@ -135,3 +135,66 @@
     background-color: #888;
   }
 }
+
+.form-notification {
+    width: 100%;
+}
+.form-notification .form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+fieldset {
+    border: none;
+}
+.form-notification .input {
+    margin-right: 20px;
+}
+
+form legend {
+    position: absolute;
+    left: 9999px;
+}
+
+#about {
+    margin-bottom: 2rem;
+}
+#about i {
+    margin-left: 3px
+}
+table caption {
+    position: absolute;
+    left: 99999px;
+}
+
+.hero.has-background-grey-light {
+    padding: 3rem 0;
+
+}
+.forum .new-post {
+    width: 100%;
+}
+
+.visuallyhidden {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+}
+.visuallyhidden:focus {
+    height: auto;
+    width: auto;
+    clip: auto;
+}
+
+.bread-crumbs li {
+    color: #fff;
+    display: inline-block;
+}
+.bread-crumbs li a {
+    color: #fff;
+}
+
