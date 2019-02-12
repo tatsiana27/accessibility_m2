@@ -13,6 +13,12 @@ document.querySelectorAll("#nav li").forEach(function(navEl) {
   };
 });
 
+function addNewPost() {
+  document.querySelector(".will-change").textContent = "New post was added!";
+}
+
+setTimeout(addNewPost, 5000);
+
 function toggleTab(selectedNav, targetId) {
   var navEls = document.querySelectorAll("#nav li");
 

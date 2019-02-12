@@ -197,4 +197,20 @@ table caption {
 .bread-crumbs li a {
     color: #fff;
 }
+.small {
+    font-size: .875em;
+}
+.hero.is-info,
+.button.is-info {
+    background-color: #3273dc;
+}
+.hero.is-info .subtitle {
+    color: #fff;
+}
+.hero.is-info .tabs.is-boxed li.is-active a {
+    color: #3273dc;
+}
+.embed-container iframe {
+    border: none;
+}
 

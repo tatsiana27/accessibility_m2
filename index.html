@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,45 +19,45 @@
           <a href="/" class="navbar-item has-text-white">
             <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg" style="width: 100%;" alt="Logo">
           </a>
-          <span class="navbar-burger burger" data-target="navbarMenu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
+          <span role="menuitem" class="navbar-burger burger" data-target="navbarMenu" aria-haspopup="true" aria-label="burger menu" aria-owns="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </div>
 
-        <nav id="navbarMenu" class="navbar-menu">
-          <ul class="navbar-end">
-            <li class="navbar-item">
-              <a href="/" class="button is-white is-outlined">
-                <span class="icon">
-                  <i class="fa fa-home"></i>
+        <nav id="navbarMenu" class="navbar-menu" aria-label="Main menu">
+          <ul id="menu" class="navbar-end" role="menu">
+            <li class="navbar-item" role="menuitem">
+              <a href="/" class="button is-white is-outlined" aria-labelledby="home">
+                <span class="icon" aria-hidden="true">
+                  <span class="fa fa-home"></span>
                 </span>
-                <span>Home</span>
+                <span id="home">Home</span>
               </a>
             </li>
-            <li class="navbar-item">
-              <a href="/examples" class="button is-white is-outlined">
-                <span class="icon">
-                  <i class="fab fa-superpowers"></i>
+            <li class="navbar-item" role="menuitem">
+              <a href="/examples" class="button is-white is-outlined" aria-labelledby="examples">
+                <span class="icon" aria-hidden="true">
+                  <span class="fab fa-superpowers"></span>
                 </span>
-                <span>Examples</span>
+                <span id="examples">Examples</span>
               </a>
             </li>
-            <li class="navbar-item">
-              <a href="/documentation" class="button is-white is-outlined">
-                <span class="icon">
-                  <i class="fa fa-book"></i>
+            <li class="navbar-item" role="menuitem">
+              <a href="/documentation" class="button is-white is-outlined" aria-labelledby="documentation">
+                <span class="icon" aria-hidden="true">
+                  <span class="fa fa-book"></span>
                 </span>
-                <span>Documentation</span>
+                <span id="documentation">Documentation</span>
               </a>
             </li>
-            <li class="navbar-item">
-              <a href="/source" class="button is-white is-outlined">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
+            <li class="navbar-item" role="menuitem">
+              <a href="/source" class="button is-white is-outlined" aria-labelledby="view-source">
+                <span class="icon" aria-hidden="true">
+                  <span class="fab fa-github"></span>
                 </span>
-                <span>View Source</span>
+                <span id="view-source">View Source</span>
               </a>
             </li>
           </ul>
@@ -86,8 +86,8 @@
               <fieldset>
                 <legend id="notification">Notify Me</legend>
                 <div class="form-container">
-                  <input type="email" class="is-expanded input">
-                  <button class="button is-info">Notify Me</button>
+                  <input type="email" class="is-expanded input" aria-label="Enter email">
+                  <button class="button is-info" aria-label="Click to subscribe on updates">Notify Me</button>
                 </div>
               </fieldset>
             </form>
@@ -104,13 +104,13 @@
       <span class="tag is-primary">New</span> Headless CMS improves customer experience and offers greater flexibility
     </div>
   </div>
-  <section id="about" class="has-text-centered">
-    <h2 class="title is-2">About Us</h2>
-    <h3 class="subtitle is-5">We of all trades, master of "some"</h3>
+  <section class="has-text-centered" aria-labelledby="about" aria-describedby="about-description">
+    <h2 class="title is-2" id="about">About Us</h2>
+    <h3 class="subtitle is-5" id="about-description">We of all trades, master of "some"</h3>
     <div class="container section-heading">
-      <p>Web developers with more than <b>4 years</b> of well-rounded experience with a degree in the
+      <p>Web developers with more than <strong>4 years</strong> of well-rounded experience with a degree in the
         field of
-        <b>Computer Science</b>, extensive knowledge of modern Web techniques and love for <b>Coffee</b>.
+        <strong>Computer Science</strong>, extensive knowledge of modern Web techniques and love for <strong>Coffee</strong>.
         Looking for an opportunity to work and upgrade, as well as being involved in an organization that
         believes
         in gaining a competitive edge and giving back to the community.</p>
@@ -146,11 +146,11 @@
             <div class="buttons has-addons is-centered">
               <a href="#github" class="button is-link new-window-icon-bg" target="_blank">
                 Github
-                <i class="fas fa-external-link-alt"></i>
+                <span class="fas fa-external-link-alt"></span>
               </a>
               <a href="#linkedin" class="button is-link" target="_blank">
                 LinkedIn
-                <i class="fas fa-external-link-alt"></i>
+                <span class="fas fa-external-link-alt"></span>
               </a>
             </div>
           </div>
@@ -176,7 +176,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <b>JavaScript:</b>
+                      <strong>JavaScript:</strong>
                       <br>
                       <progress class="progress is-primary" value="90" max="100"></progress>
                     </p>
@@ -188,7 +188,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <b>Vue.js:</b>
+                      <strong>Vue.js:</strong>
                       <br>
                       <progress class="progress is-primary" value="90" max="100"></progress>
                     </p>
@@ -200,7 +200,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <b>Node.js:</b>
+                      <strong>Node.js:</strong>
                       <br>
                       <progress class="progress is-primary" value="75" max="100"></progress>
                     </p>
@@ -212,7 +212,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <b>HTML5/CSS3</b>
+                      <strong>HTML5/CSS3</strong>
                       <br>
                       <progress class="progress is-primary" value="95" max="100"></progress>
                     </p>
@@ -224,7 +224,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <b>Databases</b>
+                      <strong>Databases</strong>
                       <br>
                       <progress class="progress is-primary" value="66" max="100"></progress>
                     </p>
@@ -236,8 +236,8 @@
         </div>
       </div>
     </div>
-    </div>
-  </section>
+    </section>
+  </div>
   <div class="has-background-danger">
     <div class="info-tiles container">
       <div class="tile is-ancestor has-text-centered">
@@ -268,15 +268,15 @@
       </div>
     </div>
   </div>
-  <section class="hero has-background-grey-light">
-    <h2 class="has-text-centered title is-2">Three key features</h2>
-    <h3 class="has-text-centered subtitle is-5 section-heading">We don't hide what we do</h3>
+  <section class="hero has-background-grey-light" aria-labelledby="key-features" aria-describedby="key-feeatures-description">
+    <h2 id="key-features" class="has-text-centered title is-2">Three key features</h2>
+    <h3 id="key-feeatures-description" class="has-text-centered subtitle is-5 section-heading">We don't hide what we do</h3>
     <div class="container features">
       <div class="columns">
         <div class="column is-4">
           <div class="card is-shady">
             <div class="card-image has-text-centered">
-              <i class="fa fa-paw"></i>
+              <span class="fa fa-paw"></span>
             </div>
             <div class="card-content">
               <div class="content">
@@ -291,7 +291,7 @@
         <div class="column is-4">
           <div class="card is-shady">
             <div class="card-image has-text-centered">
-              <i class="fab fa-empire"></i>
+              <span class="fab fa-empire"></span>
             </div>
             <div class="card-content">
               <div class="content">
@@ -307,7 +307,7 @@
         <div class="column is-4">
           <div class="card is-shady">
             <div class="card-image has-text-centered">
-              <i class="fab fa-apple"></i>
+              <span class="fab fa-apple"></span>
             </div>
             <div class="card-content">
               <div class="content">
@@ -321,39 +321,39 @@
       </div>
     </div>
   </section>
-  <section>
+  <section aria-labelledby="list-of-topics" aria-describedby="list-of-topics-description">
     <div class="hero is-info">
       <div class="hero-body">
         <div class="container">
-          <h2 class="title">List of topics</h2>
-          <h3 class="subtitle">We are always in touch we the outside world</h3>
+          <h2 id="list-of-topics" class="title">List of topics</h2>
+          <h3 id="list-of-topics-description" class="subtitle">We are always in touch we the outside world</h3>
         </div>
       </div>
-      <nav class="tabs is-boxed is-centered main-menu" id="nav">
+      <nav class="tabs is-boxed is-centered main-menu" id="nav" aria-label="Topics menu">
 
-        <ul>
-          <li data-target="pane-1" id="1">
-            <a href="#pictures">
-              <span class="icon is-small"><i class="fa fa-image"></i></span>
-              <span>Pictures</span>
+        <ul role="tablist">
+          <li role="tab" aria-selected="false" data-target="pane-1" id="1">
+            <a href="#pictures" aria-labelledby="pictures">
+              <span class="icon is-small" aria-hidden="true"><span class="fa fa-image"></span></span>
+              <span id="pictures">Pictures</span>
             </a>
           </li>
-          <li data-target="pane-2" id="2" class="is-active">
+          <li role="tab" aria-selected="true" data-target="pane-2" id="2" class="is-active" aria-labelledby="article">
             <a href="#article">
-              <span class="icon is-small"><i class="fab fa-empire"></i></span>
-              <span>Article</span>
+              <span class="icon is-small" aria-hidden="true"><span class="fab fa-empire"></span></span>
+              <span id="article">Article</span>
             </a>
           </li>
-          <li data-target="pane-3" id="3">
+          <li role="tab" aria-selected="false" data-target="pane-3" id="3" aria-labelledby="team">
             <a href="#team">
-              <span class="icon is-small"><i class="fab fa-superpowers"></i></span>
-              <span>Team</span>
+              <span class="icon is-small" aria-hidden="true"><span class="fab fa-superpowers"></span></span>
+              <span id="team">Team</span>
             </a>
           </li>
-          <li data-target="pane-4" id="4">
+          <li role="tab" aria-selected="false" data-target="pane-4" id="4" aria-labelledby="video">
             <a href="#video">
-              <span class="icon is-small"><i class="fa fa-film"></i></span>
-              <span>Video</span>
+              <span class="icon is-small" aria-hidden="true"><span class="fa fa-film"></span></span>
+              <span id="video">Video</span>
             </a>
           </li>
         </ul>
@@ -361,7 +361,7 @@
     </div>
 
     <div class="tab-content container">
-      <div class="tab-pane" id="pane-1" class="level">
+      <div role="tabpanel" class="tab-pane" id="pane-1" class="level">
         <div class="container">
           <div class="columns features">
             <div class="column is-4">
@@ -417,17 +417,17 @@
         </div>
       </div>
 
-      <div class="tab-pane" id="pane-3">
+      <div role="tabpanel" class="tab-pane" id="pane-3">
         <div class="columns medias">
           <div class="column">
             <div class="media">
               <div class="media-left">
-                <i class="fab fa-github-square fa-4x"></i>
+                <span class="fab fa-github-square fa-4x"></span>
               </div>
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <a href="#di"><b>Dominic Ipsum</b></a>
+                    <a href="#di"><strong>Dominic Ipsum</strong></a>
                     <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
                   </p>
                 </div>
@@ -435,12 +435,12 @@
             </div>
             <div class="media">
               <div class="media-left">
-                <i class="fab fa-empire fa-4x"></i>
+                <span class="fab fa-empire fa-4x"></span>
               </div>
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <a href="#ci"><b>Cassie Ipsum</b></a>
+                    <a href="#ci"><strong>Cassie Ipsum</strong></a>
                     <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
                   </p>
                 </div>
@@ -450,12 +450,12 @@
           <div class="column">
             <div class="media">
               <div class="media-left">
-                <i class="fab fa-ravelry fa-4x"></i>
+                <span class="fab fa-ravelry fa-4x"></span>
               </div>
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <a href="#ai"><b>Avery Ipsum</b></a>
+                    <a href="#ai"><strong>Avery Ipsum</strong></a>
                     <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
                   </p>
                 </div>
@@ -463,12 +463,12 @@
             </div>
             <div class="media">
               <div class="media-left">
-                <i class="fab fa-github-alt fa-4x"></i>
+                <span class="fab fa-github-alt fa-4x"></span>
               </div>
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <a href="#ii"><b>io Ipsum</b></a>
+                    <a href="#ii"><strong>io Ipsum</strong></a>
                     <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
                   </p>
                 </div>
@@ -478,15 +478,13 @@
         </div>
       </div>
 
-      <div class="tab-pane" id="pane-4">
+      <div role="tabpanel" class="tab-pane" id="pane-4">
         <a href="#videotranscript" class="visuallyhidden">Skip to video transcript</a>
         <div class="columns is-centered">
           <div class="column is-three-quarters">
             <div class="title has-text-centered">Inspired video</div>
             <div class="embed-container image">
-              <iframe title="Beautiful video" src="https://player.vimeo.com/video/261794608" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="videoiframe">
-
-              </iframe>
+              <iframe title="Beautiful video" src="https://player.vimeo.com/video/261794608" width="666" height="375" webkitAllowFullScreen mozallowfullscreen allowFullScreen frameborder="0"></iframe>
               <div id="videotranscript">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pellentesque ex urna, nec malesuada sem tristique in. Donec feugiat pretium velit, vitae euismod turpis imperdiet sit amet. Nulla id bibendum dolor. Etiam sed velit sit amet nisl cursus semper at et massa. Nulla posuere quam a tortor consequat efficitur. Curabitur in ligula vel massa porta volutpat in ac urna. Cras luctus fermentum quam, et viverra turpis ornare vel. Donec sit amet aliquam nunc, ac mattis ante. Praesent sed mi elit. Etiam accumsan risus in ligula accumsan pharetra.
               </div>
@@ -495,12 +493,12 @@
         </div>
       </div>
 
-      <div class="tab-pane is-active" id="pane-2">
+      <div role="tabpanel" class="tab-pane is-active" id="pane-2">
         <div class="content">
           <div class="is-1 title">Hello World</div>
           <p>Lorem ipsum<sup><a>[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
           <div class="is-2 title">Second level</div>
-          <p>Curabitur accumsan turpis pharetra <b>augue tincidunt</b> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
+          <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
           <ul>
             <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
             <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
@@ -588,9 +586,9 @@
       </div>
     </div>
   </section>
-  <section class="section has-background-grey-lighter">
-    <h2 class="title is-2 has-text-centered">Tours</h2>
-    <h3 class="subtitle is-5 has-text-centered">Outcoming dates for the best options</h3>
+  <section class="section has-background-grey-lighter" aria-labelledby="tours" aria-describedby="tours-description">
+    <h2 id="tours" class="title is-2 has-text-centered">Tours</h2>
+    <h3 id="tours-description" class="subtitle is-5 has-text-centered">Outcoming dates for the best options</h3>
     <div class="container has-text-centered">
       <div class="tile is-ancestor">
         <div class="tile is-parent">
@@ -659,26 +657,26 @@
       </div>
     </div>
   </section>
-  <section class="section">
-    <h2 class="title is-2 has-text-centered">Services</h2>
-    <h3 class="subtitle is-5 has-text-centered">What can I do for you?</h3>
+  <section class="section" aria-labelledby="services" aria-describedby="services-description">
+    <h2 id="services" class="title is-2 has-text-centered">Services</h2>
+    <h3 id="services-description" class="subtitle is-5 has-text-centered">What can I do for you?</h3>
     <div class="container">
       <div class="columns">
         <div class="column">
           <a href="#front-end-web-development" class="box">
-            <section class="content">
-              <h4 class="title is-5">Front End Web Development</h4>
+            <div class="content" aria-labelledby="front-end1">
+              <h4 id="front-end1" class="title is-5">Front End Web Development</h4>
               Develop Front End using latest standards with HTML5/CSS3 with added funtionality using JavaScript and
               Vue.js.
-            </section>
+            </div>
           </a>
         </div>
         <div class="column">
           <a href="#back-end-web-development" class="box">
-            <section class="content">
-              <h4 class="title is-5">Back End Web Development</h4>
+            <div class="content" aria-labelledby="back-end1">
+              <h4 id="back-end1" class="title is-5">Back End Web Development</h4>
               Develop Back End application/service using Node.js or ASP .NET and SQL server or Mongo DB databases.
-            </section>
+            </div>
           </a>
         </div>
       </div>
@@ -686,27 +684,27 @@
       <div class="columns">
         <div class="column">
           <a href="#front-end-web-development" class="box">
-            <section class="content">
-              <h4 class="title is-5">Front End Web Development</h4>
+            <div class="content" aria-labelledby="front-end2">
+              <h4 id="front-end2" class="title is-5">Front End Web Development</h4>
               Develop Front End using latest standards with HTML5/CSS3 with added funtionality using JavaScript and
               Vue.js.
-            </section>
+            </div>
           </a>
         </div>
         <div class="column">
           <a href="#back-end-web-development" class="box">
-            <section class="content">
-              <h4 class="title is-5">Back End Web Development</h4>
+            <div class="content" aria-labelledby="back-end2">
+              <h4 id="back-end2" class="title is-5">Back End Web Development</h4>
               Develop Back End application/service using Node.js or ASP .NET and SQL server or Mongo DB databases.
-            </section>
+            </div>
           </a>
         </div>
       </div>
     </div>
   </section>
-  <section class="section has-background-grey-lighter">
-    <h2 class="title is-2 has-text-centered">Portfolio</h2>
-    <h3 class="subtitle is-5 has-text-centered">Our latest works</h3>
+  <section class="section has-background-grey-lighter" aria-labelledby="portfolio" aria-describedby="portfolio-description">
+    <h2 id="portfolio" class="title is-2 has-text-centered">Portfolio</h2>
+    <h3 id="portfolio-description" class="subtitle is-5 has-text-centered">Our latest works</h3>
     <div class="container">
       <div class="container portfolio-container">
         <div class="columns">
@@ -714,7 +712,7 @@
             <div class="card">
               <div class="card-header">
                 <p class="card-header-title">
-                  <span>Admin <small>(Light)</small></span>
+                  <span>Admin <span class="small">(Light)</span></span>
                   <span class="is-pulled-right">
                     <a href="#version">
                       <span class="tag is-default">v0.7.2</span>
@@ -866,22 +864,22 @@
       </div>
     </div>
   </section>
-  <section class="section forum">
-    <h2 class="title is-2">Forum</h2>
-    <h3 class="subtitle is-5">Discuss any topic with no leaving this page</h3>
+  <section class="section forum" aria-labelledby="forum" aria-describedby="forum-description">
+    <h2 id="forum" class="title is-2">Forum</h2>
+    <h3 id="forum-description" class="subtitle is-5">Discuss any topic with no leaving this page</h3>
     <div class="container">
       <div class="columns">
         <div class="column is-3">
           <button class="button is-primary is-block is-alt is-large new-post">New Post</button>
           <div class="menu">
             <ul class="menu-list forum-list">
-              <li tabindex="0"><span class="tag is-primary is-medium">Dashboard</span></li>
-              <li tabindex="0"><span class="tag is-link is-medium">Customers</span></li>
-              <li tabindex="0"><span class="tag is-light is-danger is-medium">Authentication</span></li>
-              <li tabindex="0"><span class="tag is-dark is-medium">Payments</span></li>
-              <li tabindex="0"><span class="tag is-success is-medium">Transfers</span></li>
-              <li tabindex="0"><span class="tag is-warning is-medium">Balance</span></li>
-              <li tabindex="0"><span class="tag is-medium ">Question</span></li>
+              <li><span class="tag is-primary is-medium">Dashboard</span></li>
+              <li><span class="tag is-link is-medium">Customers</span></li>
+              <li><span class="tag is-light is-danger is-medium">Authentication</span></li>
+              <li><span class="tag is-dark is-medium">Payments</span></li>
+              <li><span class="tag is-success is-medium">Transfers</span></li>
+              <li><span class="tag is-warning is-medium">Balance</span></li>
+              <li><span class="tag is-medium ">Question</span></li>
             </ul>
           </div>
         </div>
@@ -904,7 +902,7 @@
                   </div>
                 </div>
                 <div class="media-right">
-                  <span class="has-text-grey-light"><i class="fa fa-comments"></i> 1</span>
+                  <span class="has-text-grey-light"><span class="fa fa-comments"></span> 1</span>
                 </div>
               </div>
             </div>
@@ -926,7 +924,7 @@
                   </div>
                 </div>
                 <div class="media-right">
-                  <span class="has-text-grey-light"><i class="fa fa-comments"></i> 0</span>
+                  <span class="has-text-grey-light"><span class="fa fa-comments"></span> 0</span>
                 </div>
               </div>
             </div>
@@ -948,7 +946,7 @@
                   </div>
                 </div>
                 <div class="media-right">
-                  <span class="has-text-grey-light"><i class="fa fa-comments"></i> 13</span>
+                  <span class="has-text-grey-light"><span class="fa fa-comments"></span> 13</span>
                 </div>
               </div>
             </div>
@@ -970,7 +968,7 @@
                   </div>
                 </div>
                 <div class="media-right">
-                  <span class="has-text-grey-light"><i class="fa fa-comments"></i> 2</span>
+                  <span class="has-text-grey-light"><span class="fa fa-comments"></span> 2</span>
                 </div>
               </div>
             </div>
@@ -992,7 +990,7 @@
                   </div>
                 </div>
                 <div class="media-right">
-                  <span class="has-text-grey-light"><i class="fa fa-comments"></i> 2</span>
+                  <span class="has-text-grey-light"><span class="fa fa-comments"></span> 2</span>
                 </div>
               </div>
             </div>
@@ -1014,62 +1012,65 @@
                   </div>
                 </div>
                 <div class="media-right">
-                  <span class="has-text-grey-light"><i class="fa fa-comments"></i> 2</span>
+                  <span class="has-text-grey-light"><span class="fa fa-comments"></span> 2</span>
                 </div>
               </div>
+            </div>
+            <div aria-live="polite" class="will-change post">
+              <!-- content will be updated -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="section has-background-light">
-    <h2 class="title is-2 has-text-centered">Contact us</h2>
-    <h3 class="subtitle is-5 has-text-centered">Don't hesitate, ask anything</h3>
+  <section class="section has-background-light" aria-labelledby="contact" aria-describedby="contact-description">
+    <h2 id="contact" class="title is-2 has-text-centered">Contact us</h2>
+    <h3 id="contact-description" class="subtitle is-5 has-text-centered">Don't hesitate, ask anything</h3>
     <div class="container">
       <form class="column is-half is-offset-one-quarter box" aria-labelledby="contact-us">
         <fieldset>
           <legend id="contact-us">Contact Us</legend>
           <div class="field">
-            <label class="label">Name</label>
+            <label for="name" class="label">Name</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Text input">
+              <input id="name" class="input" type="text" placeholder="Text input">
             </div>
           </div>
 
           <div class="field">
-            <label class="label">Username</label>
+            <label for="username" class="label">Username</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="text">
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
+              <input id="username" class="input is-success" type="text">
+              <span class="icon is-small is-left" aria-hidden="true">
+                <span class="fas fa-user"></span>
               </span>
               <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
+                <span class="fas fa-check"></span>
               </span>
             </div>
             <p class="help is-success">This username is available</p>
           </div>
 
           <div class="field">
-            <label class="label">Email</label>
+            <label for="email" class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-              <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
+              <input id="email" class="input is-danger" type="email" placeholder="Email input" value="hello@">
+              <span class="icon is-small is-left" aria-hidden="true">
+                <span class="fas fa-envelope"></span>
               </span>
               <span class="icon is-small is-right">
-                <i class="fas fa-exclamation-triangle"></i>
+                <span class="fas fa-exclamation-triangle"></span>
               </span>
             </div>
             <p class="help is-danger">This email is invalid</p>
           </div>
 
           <div class="field">
-            <label class="label">Subject</label>
+            <label for="subject" class="label">Subject</label>
             <div class="control">
               <div class="select">
-                <select>
+                <select id="subject">
                   <option>Select dropdown</option>
                   <option>With options</option>
                 </select>
@@ -1078,17 +1079,17 @@
           </div>
 
           <div class="field">
-            <label class="label">Message</label>
+            <label for="message" class="label">Message</label>
             <div class="control">
-              <textarea class="textarea" placeholder="Textarea"></textarea>
+              <textarea id="message" class="textarea" placeholder="Textarea"></textarea>
             </div>
           </div>
 
           <div class="field">
             <div class="control">
-              <label class="checkbox">
-                <input type="checkbox">
-                I agree to the <a>terms and conditions</a>
+              <label id="check-label1" class="checkbox">
+                <input type="checkbox" aria-checked="false" labelledby="check-label1">
+                I agree to the <a href="#termsandcomditions">terms and conditions</a>
               </label>
             </div>
           </div>
@@ -1096,11 +1097,11 @@
           <div class="field">
             <div class="control">
               <label class="radio">
-                <input type="radio" name="question">
+                <input type="radio" aria-checked="false" name="question">
                 Yes
               </label>
               <label class="radio">
-                <input type="radio" name="question">
+                <input type="radio" aria-checked="false" name="question">
                 No
               </label>
             </div>
@@ -1125,14 +1126,14 @@
           <div class="notification media has-background-white">
             <div class="media-left">
               <span class="icon">
-                <i class="has-text-warning fas fa-columns fa-lg"></i>
+                <span class="has-text-warning fas fa-columns fa-lg"></span>
               </span>
             </div>
             <div class="media-content">
               <div class="content">
                 <h4 class="title is-size-4">Columns</h4>
                 <p class="is-size-5 subtitle">
-                  The power of <b>Flexbox</b> in a simple interface
+                  The power of <strong>Flexbox</strong> in a simple interface
                 </p>
               </div>
             </div>
@@ -1142,14 +1143,14 @@
           <div class="notification has-background-white media">
             <div class="media-left">
               <span class="icon has-text-info">
-                <i class="fab fa-lg fa-wpforms"></i>
+                <span class="fab fa-lg fa-wpforms"></span>
               </span>
             </div>
             <div class="media-content">
               <div class="content">
                 <h4 class="title is-size-4">Form</h4>
                 <p class="is-size-5 subtitle">
-                  The indispensable <b>form controls</b>, designed for maximum clarity
+                  The indispensable <strong>form controls</strong>, designed for maximum clarity
                 </p>
               </div>
             </div>
@@ -1159,7 +1160,7 @@
           <div class="notification has-background-white media">
             <div class="media-left">
               <span class="icon has-text-danger">
-                <i class="fas fa-lg fa-cubes"></i>
+                <span class="fas fa-lg fa-cubes"></span>
               </span>
             </div>
             <div class="media-content">
@@ -1176,14 +1177,14 @@
           <div class="notification has-background-white media">
             <div class="media-left">
               <span class="icon has-text-grey">
-                <i class="fas fa-lg fa-cogs"></i>
+                <span class="fas fa-lg fa-cogs"></span>
               </span>
             </div>
             <div class="media-content">
               <div class="content">
                 <h4 class="title is-size-4">Modifiers</h4>
                 <p class="is-size-5 subtitle">
-                  An <b>easy-to-read</b> naming system designed for humans
+                  An <strong>easy-to-read</strong> naming system designed for humans
                 </p>
               </div>
             </div>
@@ -1193,14 +1194,14 @@
           <div class="notification has-background-white media">
             <div class="media-left">
               <span class="icon has-text-primary">
-                <i class="fas fa-lg fa-warehouse"></i>
+                <span class="fas fa-lg fa-warehouse"></span>
               </span>
             </div>
             <div class="media-content">
               <div class="content">
                 <h4 class="title is-size-4">Layout</h4>
                 <p class="is-size-5 subtitle">
-                  Design the <b>structure</b> of your webpage with these CSS classes
+                  Design the <strong>structure</strong> of your webpage with these CSS classes
                 </p>
               </div>
             </div>
@@ -1210,14 +1211,14 @@
           <div class="notification has-background-white media">
             <div class="media-left">
               <span class="icon has-text-danger">
-                <i class="fas fa-lg fa-cube"></i>
+                <span class="fas fa-lg fa-cube"></span>
               </span>
             </div>
             <div class="media-content">
               <div class="content">
                 <h4 class="title is-size-4">Elements</h4>
                 <p class="is-size-5 subtitle">
-                  Essential interface elements that only require a <b>single CSS class</b>
+                  Essential interface elements that only require a <strong>single CSS class</strong>
                 </p>
               </div>
             </div>
@@ -1231,7 +1232,7 @@
   <div class="container">
     <div class="columns">
       <div class="column is-3 is-offset-2">
-        <div class="is-3 title"><b>Lessons</b></div>
+        <div class="is-3 title"><strong>Lessons</strong></div>
         <ul>
           <li><a href="#1">Lorem ipsum dolor sit amet</a></li>
           <li><a href="#2">Vestibulum errato isse</a></li>
@@ -1243,7 +1244,7 @@
         </ul>
       </div>
       <div class="column is-3">
-        <div class="is-3 title"><b>News</b></div>
+        <div class="is-3 title"><strong>News</strong></div>
         <ul>
           <li><a href="#8">Labore et dolore magna aliqua</a></li>
           <li><a href="#9">Kanban airis sum eschelor</a></li>
@@ -1255,7 +1256,7 @@
         </ul>
       </div>
       <div class="column is-4">
-        <div class="is-3 title"><b>Help</b></div>
+        <div class="is-3 title"><strong>Help</strong></div>
         <ul>
           <li><a href="">Objects in space</a></li>
           <li><a href="#15">Playing cards with coyote</a></li>
@@ -1268,17 +1269,17 @@
 
     <div class="content has-text-centered">
       <div class="soc">
-        <a href="#github"><i class="fab fa-github-alt fa-2x"></i></a>
-        <a href="#youtube"><i class="fab fa-youtube fa-2x"></i></a>
-        <a href="#facebook"><i class="fab fa-facebook fa-2x"></i></a>
-        <a href="#twitter"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#github" aria-label="github"><span class="fab fa-github-alt fa-2x"></span></a>
+        <a href="#youtube" aria-label="youtube"><span class="fab fa-youtube fa-2x"></span></a>
+        <a href="#facebook" aria-label="facebook"><span class="fab fa-facebook fa-2x"></span></a>
+        <a href="#twitter" aria-label="twitter"><span class="fab fa-twitter fa-2x"></span></a>
       </div>
       <p>The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.</p>
     </div>
   </div>
 </footer>
 
-  <div id="modal-card" class="modal modal-fx-3dSlit">
+  <div role="dialog" aria-label="modal info card" aria-describedby="modal-title" id="modal-card" class="modal modal-fx-3dSlit" tabindex="-1">
     <div class="modal-background"></div>
     <div class="modal-content is-tiny">
       <div class="card">
@@ -1295,7 +1296,7 @@
               </div>
             </div>
             <div class="media-content">
-              <div class="title is-4">Jane Doe</div>
+              <div id="modal-title" class="title is-4">Jane Doe</div>
               <div class="subtitle is-6">@jane_doe</div>
             </div>
           </div>
@@ -1316,15 +1317,15 @@
     <button class="modal-close is-large"></button>
   </div>
 
-  <div id="modal-image1" class="modal modal-fx-3dSlit">
+  <div role=dialog aria-label="first modal image" id="modal-image1" class="modal modal-fx-3dSlit" tabindex="-1">
     <div class="modal-background"></div>
     <div class="modal-content is-huge is-image">
-      <img src="https://source.unsplash.com/random/?sig=1">
+      <img src="https://source.unsplash.com/random/?sig=1" alt="large first beautiful picture">
     </div>
     <button class="modal-close is-large"></button>
   </div>
 
-  <div id="modal-image2" class="modal modal-fx-superScaled">
+  <div role=dialog aria-label="second modal image" id="modal-image2" class="modal modal-fx-superScaled" tabindex="-1">
     <div class="modal-background"></div>
     <div class="modal-content  is-image">
       <img src="https://source.unsplash.com/random/?sig=3" alt="large second beautiful picture">
