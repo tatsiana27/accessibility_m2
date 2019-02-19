@@ -10,8 +10,8 @@
 </head>
 
 <body>
-<a href="#maincontent" class="visuallyhidden">Skip to main content</a>
 <header class="hero hero-bg is-fullheight">
+  <a href="#maincontent" class="visuallyhidden">Skip to main content</a>
   <div class="hero-head">
     <div class="navbar">
       <div class="container">
@@ -19,16 +19,17 @@
           <a href="/" class="navbar-item has-text-white">
             <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg" style="width: 100%;" alt="Logo">
           </a>
-          <span role="menuitem" class="navbar-burger burger" data-target="navbarMenu" aria-haspopup="true" aria-label="burger menu" aria-owns="menu">
+
+        </div>
+
+        <nav id="navbarMenu" class="main-navigation" aria-label="Main navigation">
+          <span tabindex="0" role="button" class="navbar-burger burger" data-target="navbarMenu" aria-expanded="false" aria-label="Burger main navigation" aria-controls="menu">
             <span></span>
             <span></span>
             <span></span>
           </span>
-        </div>
-
-        <nav id="navbarMenu" class="navbar-menu" aria-label="Main menu">
-          <ul id="menu" class="navbar-end" role="menu">
-            <li class="navbar-item" role="menuitem">
+          <ul id="menu" class="navbar-end">
+            <li class="navbar-item">
               <a href="/" class="button is-white is-outlined" aria-labelledby="home">
                 <span class="icon" aria-hidden="true">
                   <span class="fa fa-home"></span>
@@ -36,7 +37,7 @@
                 <span id="home">Home</span>
               </a>
             </li>
-            <li class="navbar-item" role="menuitem">
+            <li class="navbar-item">
               <a href="/examples" class="button is-white is-outlined" aria-labelledby="examples">
                 <span class="icon" aria-hidden="true">
                   <span class="fab fa-superpowers"></span>
@@ -44,7 +45,7 @@
                 <span id="examples">Examples</span>
               </a>
             </li>
-            <li class="navbar-item" role="menuitem">
+            <li class="navbar-item">
               <a href="/documentation" class="button is-white is-outlined" aria-labelledby="documentation">
                 <span class="icon" aria-hidden="true">
                   <span class="fa fa-book"></span>
@@ -52,7 +53,7 @@
                 <span id="documentation">Documentation</span>
               </a>
             </li>
-            <li class="navbar-item" role="menuitem">
+            <li class="navbar-item">
               <a href="/source" class="button is-white is-outlined" aria-labelledby="view-source">
                 <span class="icon" aria-hidden="true">
                   <span class="fab fa-github"></span>
@@ -329,39 +330,39 @@
           <h3 id="list-of-topics-description" class="subtitle">We are always in touch we the outside world</h3>
         </div>
       </div>
-      <nav class="tabs is-boxed is-centered main-menu" id="nav" aria-label="Topics menu">
+      <div class="tabs is-boxed is-centered main-menu">
 
-        <ul role="tablist">
-          <li role="tab" aria-selected="false" data-target="pane-1" id="1">
-            <a href="#pictures" aria-labelledby="pictures">
+        <ul role="tablist" class="tablist">
+          <li class="tab-item" role="tab" aria-selected="false" data-target="pane-1" id="1" aria-labelledby="pictures" tabindex="-1" aria-controls="pane-1">
+            <a role="presentation">
               <span class="icon is-small" aria-hidden="true"><span class="fa fa-image"></span></span>
               <span id="pictures">Pictures</span>
             </a>
           </li>
-          <li role="tab" aria-selected="true" data-target="pane-2" id="2" class="is-active" aria-labelledby="article">
-            <a href="#article">
+          <li role="tab" aria-selected="true" data-target="pane-2" id="2" class="is-active tab-item" aria-labelledby="article" tabindex="0" aria-controls="pane-2">
+            <a role="presentation">
               <span class="icon is-small" aria-hidden="true"><span class="fab fa-empire"></span></span>
               <span id="article">Article</span>
             </a>
           </li>
-          <li role="tab" aria-selected="false" data-target="pane-3" id="3" aria-labelledby="team">
-            <a href="#team">
+          <li class="tab-item" role="tab" aria-selected="false" data-target="pane-3" id="3" aria-labelledby="team" tabindex="-1" aria-controls="pane-3">
+            <a role="presentation">
               <span class="icon is-small" aria-hidden="true"><span class="fab fa-superpowers"></span></span>
               <span id="team">Team</span>
             </a>
           </li>
-          <li role="tab" aria-selected="false" data-target="pane-4" id="4" aria-labelledby="video">
-            <a href="#video">
+          <li class="tab-item" role="tab" aria-selected="false" data-target="pane-4" id="4" aria-labelledby="video" tabindex="-1" aria-controls="pane-4">
+            <a role="presentation">
               <span class="icon is-small" aria-hidden="true"><span class="fa fa-film"></span></span>
               <span id="video">Video</span>
             </a>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
 
     <div class="tab-content container">
-      <div role="tabpanel" class="tab-pane" id="pane-1" class="level">
+      <div role="tabpanel" class="tab-pane" hidden="hidden" tabindex="-1" id="pane-1" class="level">
         <div class="container">
           <div class="columns features">
             <div class="column is-4">
@@ -417,7 +418,7 @@
         </div>
       </div>
 
-      <div role="tabpanel" class="tab-pane" id="pane-3">
+      <div role="tabpanel" class="tab-pane" hidden="hidden" tabindex="-1" id="pane-3">
         <div class="columns medias">
           <div class="column">
             <div class="media">
@@ -478,13 +479,13 @@
         </div>
       </div>
 
-      <div role="tabpanel" class="tab-pane" id="pane-4">
+      <div role="tabpanel" class="tab-pane" hidden="hidden" tabindex="-1" id="pane-4">
         <a href="#videotranscript" class="visuallyhidden">Skip to video transcript</a>
         <div class="columns is-centered">
           <div class="column is-three-quarters">
             <div class="title has-text-centered">Inspired video</div>
             <div class="embed-container image">
-              <iframe title="Beautiful video" src="https://player.vimeo.com/video/261794608" width="666" height="375" webkitAllowFullScreen mozallowfullscreen allowFullScreen frameborder="0"></iframe>
+              <iframe title="Beautiful video" src="https://player.vimeo.com/video/261794608" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
               <div id="videotranscript">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pellentesque ex urna, nec malesuada sem tristique in. Donec feugiat pretium velit, vitae euismod turpis imperdiet sit amet. Nulla id bibendum dolor. Etiam sed velit sit amet nisl cursus semper at et massa. Nulla posuere quam a tortor consequat efficitur. Curabitur in ligula vel massa porta volutpat in ac urna. Cras luctus fermentum quam, et viverra turpis ornare vel. Donec sit amet aliquam nunc, ac mattis ante. Praesent sed mi elit. Etiam accumsan risus in ligula accumsan pharetra.
               </div>
@@ -493,7 +494,7 @@
         </div>
       </div>
 
-      <div role="tabpanel" class="tab-pane is-active" id="pane-2">
+      <div role="tabpanel" class="tab-pane is-active" tabindex="-1" id="pane-2">
         <div class="content">
           <div class="is-1 title">Hello World</div>
           <p>Lorem ipsum<sup><a>[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
@@ -506,7 +507,7 @@
             <li>Ut non enim metus.</li>
           </ul>
           <div class="is-3 title">Third level</div>
-          <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a>non ante</a>. Phasellus lacus ex, semper ac tortor nec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
+          <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="#non-ante">non ante</a>. Phasellus lacus ex, semper ac tortor nec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
           <ol>
             <li>Donec blandit a lorem id convallis.</li>
             <li>Cras gravida arcu at diam gravida gravida.</li>
@@ -1227,57 +1228,6 @@
       </div>
     </div>
   </div>
-</main>
-<footer>
-  <div class="container">
-    <div class="columns">
-      <div class="column is-3 is-offset-2">
-        <div class="is-3 title"><strong>Lessons</strong></div>
-        <ul>
-          <li><a href="#1">Lorem ipsum dolor sit amet</a></li>
-          <li><a href="#2">Vestibulum errato isse</a></li>
-          <li><a href="#3">Lorem ipsum dolor sit amet</a></li>
-          <li><a href="#4">Aisia caisia</a></li>
-          <li><a href="#5">Murphy's law</a></li>
-          <li><a href="#6">Flimsy Lavenrock</a></li>
-          <li><a href="#7">Maven Mousie Lavender</a></li>
-        </ul>
-      </div>
-      <div class="column is-3">
-        <div class="is-3 title"><strong>News</strong></div>
-        <ul>
-          <li><a href="#8">Labore et dolore magna aliqua</a></li>
-          <li><a href="#9">Kanban airis sum eschelor</a></li>
-          <li><a href="#10">Modular modern free</a></li>
-          <li><a href="#11">The king of clubs</a></li>
-          <li><a href="#12">The Discovery Dissipation</a></li>
-          <li><a href="#13">Course Correction</a></li>
-          <li><a href="#14">Better Angels</a></li>
-        </ul>
-      </div>
-      <div class="column is-4">
-        <div class="is-3 title"><strong>Help</strong></div>
-        <ul>
-          <li><a href="">Objects in space</a></li>
-          <li><a href="#15">Playing cards with coyote</a></li>
-          <li><a href="#16">Goodbye Yellow Brick Road</a></li>
-          <li><a href="#17">The Garden of Forking Paths</a></li>
-          <li><a href="#18">Future Shock</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="content has-text-centered">
-      <div class="soc">
-        <a href="#github" aria-label="github"><span class="fab fa-github-alt fa-2x"></span></a>
-        <a href="#youtube" aria-label="youtube"><span class="fab fa-youtube fa-2x"></span></a>
-        <a href="#facebook" aria-label="facebook"><span class="fab fa-facebook fa-2x"></span></a>
-        <a href="#twitter" aria-label="twitter"><span class="fab fa-twitter fa-2x"></span></a>
-      </div>
-      <p>The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.</p>
-    </div>
-  </div>
-</footer>
 
   <div role="dialog" aria-label="modal info card" aria-describedby="modal-title" id="modal-card" class="modal modal-fx-3dSlit" tabindex="-1">
     <div class="modal-background"></div>
@@ -1332,6 +1282,58 @@
     </div>
     <button class="modal-close is-large"></button>
   </div>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3 is-offset-2">
+        <div class="is-3 title"><strong>Lessons</strong></div>
+        <ul>
+          <li><a href="#1">Lorem ipsum dolor sit amet</a></li>
+          <li><a href="#2">Vestibulum errato isse</a></li>
+          <li><a href="#3">Lorem ipsum dolor sit amet</a></li>
+          <li><a href="#4">Aisia caisia</a></li>
+          <li><a href="#5">Murphy's law</a></li>
+          <li><a href="#6">Flimsy Lavenrock</a></li>
+          <li><a href="#7">Maven Mousie Lavender</a></li>
+        </ul>
+      </div>
+      <div class="column is-3">
+        <div class="is-3 title"><strong>News</strong></div>
+        <ul>
+          <li><a href="#8">Labore et dolore magna aliqua</a></li>
+          <li><a href="#9">Kanban airis sum eschelor</a></li>
+          <li><a href="#10">Modular modern free</a></li>
+          <li><a href="#11">The king of clubs</a></li>
+          <li><a href="#12">The Discovery Dissipation</a></li>
+          <li><a href="#13">Course Correction</a></li>
+          <li><a href="#14">Better Angels</a></li>
+        </ul>
+      </div>
+      <div class="column is-4">
+        <div class="is-3 title"><strong>Help</strong></div>
+        <ul>
+          <li><a href="">Objects in space</a></li>
+          <li><a href="#15">Playing cards with coyote</a></li>
+          <li><a href="#16">Goodbye Yellow Brick Road</a></li>
+          <li><a href="#17">The Garden of Forking Paths</a></li>
+          <li><a href="#18">Future Shock</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content has-text-centered">
+      <div class="soc">
+        <a href="#github" aria-label="github"><span class="fab fa-github-alt fa-2x"></span></a>
+        <a href="#youtube" aria-label="youtube"><span class="fab fa-youtube fa-2x"></span></a>
+        <a href="#facebook" aria-label="facebook"><span class="fab fa-facebook fa-2x"></span></a>
+        <a href="#twitter" aria-label="twitter"><span class="fab fa-twitter fa-2x"></span></a>
+      </div>
+      <p>The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.</p>
+    </div>
+  </div>
+</footer>
 
   <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
   <script async src="js/custom.js"></script>
