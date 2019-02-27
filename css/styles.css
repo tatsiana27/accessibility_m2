@@ -258,12 +258,28 @@ table caption {
 .has-text-grey-light {
     color: #6c6c6c !important;
 }
-.help.is-danger {
+.help.is-danger,
+.control.is-danger,
+.title.is-danger {
     color: #cc2c4c;
 }
 .help.is-success {
     color: #157d39;
 }
+
+.contact-us.button {
+    margin-top: 20px;
+}
+.control .help {
+    margin-bottom: 20px;
+}
+#is-success-message {
+    color: #157d39;
+}
+#is-error-message {
+    color: #cc2c4c;
+}
+
 
 
 

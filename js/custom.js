@@ -6,6 +6,201 @@
   //   menu.classList.toggle("is-active");
   // });
 
+
+  // const skipLinks = document.querySelectorAll('.skip-link');
+  //
+  // for (let i = 0; i < skipLinks.length; ++i) {
+  //   skipLinks[i].addEventListener('keyup', keyupSkipLinksEventListener);
+  // }
+
+  const contactUs = document.querySelector('#form-contact-us');
+  const email = document.querySelector('#email');
+
+
+
+  const validateForm = function(e) {
+    e.preventDefault();
+
+    let isValidForm = true;
+    let isFirstNameValid = false;
+    let isLastNameValid = false;
+    let errorMessage = '';
+    const phonePattern = /^\d{11}$/;
+    const user = {};
+    const users = getUsers();
+    const { username, firstName, lastName, address, phone, yearBirth } = this.elements;
+
+    if(isUserNameAvailable(username.value, users)) {
+        user.username = username.value;
+        resetError(username, username.parentNode);
+
+    } else {
+      if (username.value) {
+        errorMessage = 'This nickname is not available';
+      }
+      showError(username, username.parentElement, errorMessage);
+      isValidForm = false;
+    }
+
+    if(firstName.value) {
+      isFirstNameValid = true;
+      user.firstName = firstName.value;
+      resetError(firstName, firstName.parentElement);
+    } else {
+      showError(firstName, firstName.parentElement);
+      isValidForm = false;
+    }
+
+    if(lastName.value) {
+      isLastNameValid = true;
+      user.lastName = lastName.value;
+      resetError(lastName, lastName.parentElement);
+    } else {
+      showError(lastName, lastName.parentElement);
+      isValidForm = false;
+    }
+
+    if(isFirstNameValid && isLastNameValid && users.length > 0 && isFirstLastNameDuplicated(firstName.value, lastName.value, users)) {
+      if(!yearBirth.value) {
+        enableYearOfBirthField();
+        isValidForm = false;
+      }
+    }
+
+    if(address.value) {
+      user.address = address.value;
+      resetError(address, address.parentElement);
+    } else {
+      showError(address, address.parentElement);
+      isValidForm = false;
+    }
+
+    if(phone.value && phone.value.match(phonePattern)) {
+      user.phone = phone.value;
+      resetError(phone, phone.parentElement);
+    } else {
+      showError(phone, phone.parentElement);
+      isValidForm = false;
+    }
+
+    if(isValidForm) {
+      saveUser(user);
+    } else {
+      manageFocus();
+    }
+
+  };
+  
+  function showError(element, container, message) {
+    const errorEl = container.querySelector(`#${element.id}-error`);
+
+    if(message) {
+      errorEl.innerHTML = message;
+    }
+    errorEl.classList.remove('visuallyhidden');
+    element.setAttribute('aria-invalid', 'true');
+    element.classList.add('is-danger');
+    container.classList.add('is-danger');
+  }
+
+  function resetError(element, container) {
+    const errorEl = container.querySelector(`#${element.id}-error`);
+
+    errorEl.classList.add('visuallyhidden');
+    element.setAttribute('aria-invalid', 'false');
+    element.classList.remove('is-danger');
+    container.classList.remove('is-danger');
+  }
+
+  function saveUser(user) {
+    let users = [];
+    const statusWrapper = document.querySelector('#status-wrapper');
+
+    if (localStorage.getItem('users') !== null) {
+      users = getUsers();
+      users.push(user);
+      localStorage.setItem('users', JSON.stringify(users));
+    } else {
+      users.push(user);
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    statusWrapper.removeAttribute('aria-describedby');
+    statusWrapper.setAttribute('aria-describedby', 'is-success-message');
+  }
+
+  function manageFocus() {
+    const invalidFields = contactUs.querySelectorAll('.control.is-danger');
+    const yearOfBirth = contactUs.querySelector('#yearBirth');
+    const statusWrapper = document.querySelector('#status-wrapper');
+
+    statusWrapper.removeAttribute('aria-describedby');
+    statusWrapper.setAttribute('aria-describedby', 'is-error-message');
+
+    if(!yearOfBirth.value && !yearOfBirth.hasAttribute('disabled')) {
+      yearOfBirth.focus();
+    } else {
+      invalidFields[0].querySelector('.input').focus();
+    }
+  }
+
+  function getUsers() {
+    return JSON.parse(localStorage.getItem('users'));
+  }
+
+  function isUserNameAvailable(nickname, users) {
+    if(!nickname) {
+      return false;
+    }
+
+    for(let i=0; i<users.length; i+=1) {
+      if(users[i].username === nickname) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function isFirstLastNameDuplicated(firstName, lastName, users) {
+    for(let i=0; i<users.length; i+=1) {
+      if(users[i].firstName === firstName && users[i].lastName === lastName) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  function enableYearOfBirthField() {
+    contactUs.querySelector('#yearBirth').removeAttribute('disabled');
+  }
+
+  email.addEventListener('blur', function() {
+    const emailPattern = /^[^@]+@[^@.]+\.[^@]+$/;
+    const self = this;
+    const emailContainer = this.parentElement;
+    const emailStatus = emailContainer.querySelector('#email-status-validation');
+
+    self.focus();
+
+    emailStatus.setAttribute('aria-describedby', 'is-waiting');
+
+    setTimeout(function(){
+      if(self.value && self.value.match(emailPattern)) {
+        emailStatus.setAttribute('aria-describedby', 'is-success-status');
+        resetError(self, emailContainer);
+      } else {
+        emailStatus.setAttribute('aria-describedby', 'is-error-status');
+        showError(self, emailContainer);
+        manageFocus();
+      }
+    }, 5000);
+
+  }, true);
+
+  contactUs.addEventListener('submit', validateForm);
+
   const keys = {
     end: 35,
     home: 36,

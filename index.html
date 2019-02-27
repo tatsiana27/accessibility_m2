@@ -11,7 +11,17 @@
 
 <body>
 <header class="hero hero-bg is-fullheight">
-  <a href="#maincontent" class="visuallyhidden">Skip to main content</a>
+  <div class="skip-links-container">
+    <ul>
+      <li><a href="#about" class="visuallyhidden skip-link">Skip to about section</a></li>
+      <li><a href="#key-features" class="visuallyhidden content skip-link">Skip to key features section</a></li>
+      <li><a href="#list-of-topics" class="visuallyhidden content skip-link">Skip to list of topics section</a></li>
+      <li><a href="#contact" class="visuallyhidden content skip-link">Skip to contact us form</a></li>
+    </ul>
+    <span id="skipLinkTarget" tabindex="-1"></span>
+  </div>
+
+  <!--<a href="#maincontent" class="visuallyhidden">Skip to main content</a>-->
   <div class="hero-head">
     <div class="navbar">
       <div class="container">
@@ -106,7 +116,7 @@
     </div>
   </div>
   <section class="has-text-centered" aria-labelledby="about" aria-describedby="about-description">
-    <h2 class="title is-2" id="about">About Us</h2>
+    <h2 tabindex="-1" class="title is-2 content-target" id="about">About Us</h2>
     <h3 class="subtitle is-5" id="about-description">We of all trades, master of "some"</h3>
     <div class="container section-heading">
       <p>Web developers with more than <strong>4 years</strong> of well-rounded experience with a degree in the
@@ -270,7 +280,7 @@
     </div>
   </div>
   <section class="hero has-background-grey-light" aria-labelledby="key-features" aria-describedby="key-feeatures-description">
-    <h2 id="key-features" class="has-text-centered title is-2">Three key features</h2>
+    <h2 tabindex="-1" id="key-features" class="has-text-centered title is-2 content-target">Three key features</h2>
     <h3 id="key-feeatures-description" class="has-text-centered subtitle is-5 section-heading">We don't hide what we do</h3>
     <div class="container features">
       <div class="columns">
@@ -326,7 +336,7 @@
     <div class="hero is-info">
       <div class="hero-body">
         <div class="container">
-          <h2 id="list-of-topics" class="title">List of topics</h2>
+          <h2 tabindex="-1" id="list-of-topics" class="title content-target">List of topics</h2>
           <h3 id="list-of-topics-description" class="subtitle">We are always in touch we the outside world</h3>
         </div>
       </div>
@@ -1026,96 +1036,73 @@
     </div>
   </section>
   <section class="section has-background-light" aria-labelledby="contact" aria-describedby="contact-description">
-    <h2 id="contact" class="title is-2 has-text-centered">Contact us</h2>
+    <h2 id="contact" class="title is-2 has-text-centered content-target">Contact us</h2>
     <h3 id="contact-description" class="subtitle is-5 has-text-centered">Don't hesitate, ask anything</h3>
+
+    <div aria-live="polite" id="status-wrapper">
+      <span id="is-success-message" class="visuallyhidden">New account was created!</span>
+      <span id="is-error-message" class="visuallyhidden">Sorry cannot create a new account: Please fix the errors and retry</span>
+    </div>
     <div class="container">
-      <form class="column is-half is-offset-one-quarter box" aria-labelledby="contact-us">
+      <form id="form-contact-us" action="#" method="POST" class="column is-half is-offset-one-quarter box" aria-labelledby="contact-us">
         <fieldset>
           <legend id="contact-us">Contact Us</legend>
-          <div class="field">
-            <label for="name" class="label">Name</label>
-            <div class="control">
-              <input id="name" class="input" type="text" placeholder="Text input">
+
+          <div class="control">
+            <label for="username" class="label">Username<span aria-hidden="true">*</span></label>
+            <input id="username" class="input" type="text" name="username" aria-required="true" aria-describedby="username-error" aria-invalid="false" />
+            <span id="username-error" class="visuallyhidden help">Please enter your nickname</span>
+          </div>
+
+          <div class="control">
+            <label for="firstName" class="label">First Name<span aria-hidden="true">*</span></label>
+            <input id="firstName" class="input" type="text" name="firstName" aria-required="true" aria-describedby="firstName-error" aria-invalid="false" />
+            <span id="firstName-error" class="visuallyhidden help">Please enter your first name</span>
+          </div>
+
+          <div class="control">
+            <label for="lastName" class="label">Last Name<span aria-hidden="true">*</span></label>
+            <input id="lastName" class="input" type="text" name="lastName" aria-required="true" aria-describedby="lastName-error" aria-invalid="false" />
+            <span id="lastName-error" class="visuallyhidden help">Please enter your last name</span>
+          </div>
+
+          <div class="control">
+            <label for="yearBirth" class="label">Year of birth<span aria-hidden="true">*</span></label>
+            <input disabled id="yearBirth" class="input" type="text" name="yearBirth" aria-required="true" aria-describedby="yearBirth-error" aria-invalid="false" />
+            <span id="yearBirth-error" class="visuallyhidden help">Please enter your year of birth</span>
+          </div>
+
+          <div class="control">
+            <label for="phone" class="label">Phone<span aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" class="input" name="phone" aria-required="true" aria-describedby="phone-error" aria-invalid="false" />
+            <span id="phone-error" class="visuallyhidden help">Please enter phone number in format 80295555555</span>
+          </div>
+
+          <div class="control">
+            <label for="address" class="label">Address<span aria-hidden="true">*</span></label>
+            <input id="address" class="input" type="text" name="address" aria-required="true" aria-describedby="address-error" aria-invalid="false"  />
+            <span id="address-error" class="visuallyhidden help">Please enter your address</span>
+          </div>
+
+          <div class="control">
+            <label for="zip" class="label">ZIP Code</label>
+            <input id="zip" class="input" type="text" name="zip" pattern="[0-9]{6}" aria-describedby="zip-error" aria-invalid="false"/>
+            <span id="zip-error" class="visuallyhidden help">Please enter zip code in format 222222</span>
+          </div>
+
+          <div class="control">
+            <label for="email" class="label">Email<span aria-hidden="true">*</span></label>
+            <input id="email" class="input" type="text" name="email" aria-required="true" aria-describedby="email-error" aria-invalid="false"/>
+            <span id="email-error" class="visuallyhidden help">Please enter valid email address</span>
+            <div aria-live="polite" id="email-status-validation">
+              <span id="is-waiting" class="visuallyhidden">Please wait while email is validating</span>
+              <span id="is-success-status" class="visuallyhidden">Email is valid</span>
+              <span id="is-error-status" class="visuallyhidden">Email is not valid</span>
             </div>
           </div>
 
-          <div class="field">
-            <label for="username" class="label">Username</label>
-            <div class="control has-icons-left has-icons-right">
-              <input id="username" class="input is-success" type="text">
-              <span class="icon is-small is-left" aria-hidden="true">
-                <span class="fas fa-user"></span>
-              </span>
-              <span class="icon is-small is-right">
-                <span class="fas fa-check"></span>
-              </span>
-            </div>
-            <p class="help is-success">This username is available</p>
-          </div>
+          <input type="submit" class="contact-us button is-link" value="Submit">
 
-          <div class="field">
-            <label for="email" class="label">Email</label>
-            <div class="control has-icons-left has-icons-right">
-              <input id="email" class="input is-danger" type="email" placeholder="Email input" value="hello@">
-              <span class="icon is-small is-left" aria-hidden="true">
-                <span class="fas fa-envelope"></span>
-              </span>
-              <span class="icon is-small is-right">
-                <span class="fas fa-exclamation-triangle"></span>
-              </span>
-            </div>
-            <p class="help is-danger">This email is invalid</p>
-          </div>
-
-          <div class="field">
-            <label for="subject" class="label">Subject</label>
-            <div class="control">
-              <div class="select">
-                <select id="subject">
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="message" class="label">Message</label>
-            <div class="control">
-              <textarea id="message" class="textarea" placeholder="Textarea"></textarea>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <label id="check-label1" class="checkbox">
-                <input type="checkbox" aria-checked="false" labelledby="check-label1">
-                I agree to the <a href="#termsandcomditions">terms and conditions</a>
-              </label>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <label class="radio">
-                <input type="radio" aria-checked="false" name="question">
-                Yes
-              </label>
-              <label class="radio">
-                <input type="radio" aria-checked="false" name="question">
-                No
-              </label>
-            </div>
-          </div>
-
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link">Submit</button>
-            </div>
-            <div class="control">
-              <button class="button is-text">Cancel</button>
-            </div>
-          </div>
         </fieldset>
       </form>
     </div>
