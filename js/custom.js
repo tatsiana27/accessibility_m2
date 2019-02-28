@@ -26,6 +26,7 @@
     let isLastNameValid = false;
     let errorMessage = '';
     const phonePattern = /^\d{11}$/;
+    const yearBirthPattern = /^\d{4}$/;
     const user = {};
     const users = getUsers();
     const { username, firstName, lastName, address, phone, yearBirth } = this.elements;
@@ -73,6 +74,16 @@
     } else {
       showError(address, address.parentElement);
       isValidForm = false;
+    }
+
+    if(!yearBirth.hasAttribute('disabled')) {
+      if(yearBirth.value && yearBirth.value.match(yearBirthPattern)) {
+        user.yearBirth = yearBirth.value;
+        resetError(yearBirth, yearBirth.parentElement);
+      } else {
+        showError(yearBirth, yearBirth.parentElement);
+        isValidForm = false;
+      }
     }
 
     if(phone.value && phone.value.match(phonePattern)) {
@@ -130,17 +141,21 @@
   }
 
   function manageFocus() {
+    console.log('manage focus')
     const invalidFields = contactUs.querySelectorAll('.control.is-danger');
     const yearOfBirth = contactUs.querySelector('#yearBirth');
     const statusWrapper = document.querySelector('#status-wrapper');
+    const submitButton = document.querySelector('.contact-us.button');
 
     statusWrapper.removeAttribute('aria-describedby');
     statusWrapper.setAttribute('aria-describedby', 'is-error-message');
 
     if(!yearOfBirth.value && !yearOfBirth.hasAttribute('disabled')) {
       yearOfBirth.focus();
-    } else {
+    } else if (invalidFields.length > 0){
       invalidFields[0].querySelector('.input').focus();
+    } else {
+      submitButton.focus();
     }
   }
 
@@ -176,26 +191,30 @@
     contactUs.querySelector('#yearBirth').removeAttribute('disabled');
   }
 
+  let isEmailValid = false;
+
   email.addEventListener('blur', function() {
     const emailPattern = /^[^@]+@[^@.]+\.[^@]+$/;
     const self = this;
     const emailContainer = this.parentElement;
     const emailStatus = emailContainer.querySelector('#email-status-validation');
 
-    self.focus();
+    if(!isEmailValid) {
+      self.focus();
+      emailStatus.setAttribute('aria-describedby', 'is-waiting');
 
-    emailStatus.setAttribute('aria-describedby', 'is-waiting');
-
-    setTimeout(function(){
-      if(self.value && self.value.match(emailPattern)) {
-        emailStatus.setAttribute('aria-describedby', 'is-success-status');
-        resetError(self, emailContainer);
-      } else {
-        emailStatus.setAttribute('aria-describedby', 'is-error-status');
-        showError(self, emailContainer);
+      setTimeout(function(){
+        if(self.value && self.value.match(emailPattern)) {
+          emailStatus.setAttribute('aria-describedby', 'is-success-status');
+          resetError(self, emailContainer);
+          isEmailValid = true;
+        } else {
+          emailStatus.setAttribute('aria-describedby', 'is-error-status');
+          showError(self, emailContainer);
+        }
         manageFocus();
-      }
-    }, 5000);
+      }, 5000);
+    }
 
   }, true);
 
