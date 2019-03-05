@@ -15,7 +15,7 @@
 
   const contactUs = document.querySelector('#form-contact-us');
   const email = document.querySelector('#email');
-
+  const addUser = document.querySelector('.add-new-user');
 
 
   const validateForm = function(e) {
@@ -31,17 +31,27 @@
     const users = getUsers();
     const { username, firstName, lastName, address, phone, yearBirth } = this.elements;
 
-    if(isUserNameAvailable(username.value, users)) {
+    // if(users && users.length > 0) {
+      if(isUserNameAvailable(username.value, users)) {
         user.username = username.value;
         resetError(username, username.parentNode);
 
-    } else {
-      if (username.value) {
-        errorMessage = 'This nickname is not available';
+      } else {
+        if (username.value) {
+          errorMessage = 'This nickname is not available';
+        }
+        showError(username, username.parentElement, errorMessage);
+        isValidForm = false;
       }
-      showError(username, username.parentElement, errorMessage);
-      isValidForm = false;
-    }
+    // } else {
+    //   if (username.value) {
+    //     user.username = username.value;
+    //     resetError(username, username.parentNode);
+    //   } else {
+    //     showError(username, username.parentElement, errorMessage);
+    //     isValidForm = false;
+    //   }
+    // }
 
     if(firstName.value) {
       isFirstNameValid = true;
@@ -124,8 +134,8 @@
   }
 
   function saveUser(user) {
+
     let users = [];
-    const statusWrapper = document.querySelector('#status-wrapper');
 
     if (localStorage.getItem('users') !== null) {
       users = getUsers();
@@ -136,31 +146,62 @@
       localStorage.setItem('users', JSON.stringify(users));
     }
 
+    updateForm();
+  }
+
+  function updateForm() {
+    const statusWrapper = document.querySelector('#status-wrapper');
+    const successBlock = statusWrapper.querySelector('#is-success-message');
+    const addUserBtn = statusWrapper.querySelector('.add-new-user');
+    const form = document.querySelector('#form-contact-us');
+
     statusWrapper.removeAttribute('aria-describedby');
     statusWrapper.setAttribute('aria-describedby', 'is-success-message');
+    successBlock.classList.remove('visuallyhidden');
+    addUserBtn.classList.remove('d-none');
+    addUserBtn.focus();
+    form.classList.add('d-none');
+
+  }
+
+  function restoreForm() {
+    const statusWrapper = document.querySelector('#status-wrapper');
+    const successBlock = statusWrapper.querySelector('#is-success-message');
+    const addUserBtn = statusWrapper.querySelector('.add-new-user');
+    const form = document.querySelector('#form-contact-us');
+    const controls = form.querySelectorAll('.input');
+    const username = document.getElementById('username');
+    username.innerHTML = 'Please enter your nickname';
+
+    statusWrapper.removeAttribute('aria-describedby');
+    successBlock.classList.add('visuallyhidden');
+    addUserBtn.classList.add('d-none');
+    form.reset();
+    isEmailValid = false;
+    form.classList.remove('d-none');
+    controls[0].focus();
   }
 
   function manageFocus() {
-    console.log('manage focus')
     const invalidFields = contactUs.querySelectorAll('.control.is-danger');
     const yearOfBirth = contactUs.querySelector('#yearBirth');
     const statusWrapper = document.querySelector('#status-wrapper');
     const submitButton = document.querySelector('.contact-us.button');
 
-    statusWrapper.removeAttribute('aria-describedby');
-    statusWrapper.setAttribute('aria-describedby', 'is-error-message');
-
     if(!yearOfBirth.value && !yearOfBirth.hasAttribute('disabled')) {
       yearOfBirth.focus();
     } else if (invalidFields.length > 0){
       invalidFields[0].querySelector('.input').focus();
+      statusWrapper.removeAttribute('aria-describedby');
+      statusWrapper.setAttribute('aria-describedby', 'is-error-message');
     } else {
       submitButton.focus();
     }
   }
 
   function getUsers() {
-    return JSON.parse(localStorage.getItem('users'));
+    const users = JSON.parse(localStorage.getItem('users'));
+    return users ? users : [];
   }
 
   function isUserNameAvailable(nickname, users) {
@@ -202,21 +243,27 @@
     if(!isEmailValid) {
       self.focus();
       emailStatus.setAttribute('aria-describedby', 'is-waiting');
+      document.getElementById('overlay').classList.remove('d-none');
 
       setTimeout(function(){
         if(self.value && self.value.match(emailPattern)) {
           emailStatus.setAttribute('aria-describedby', 'is-success-status');
           resetError(self, emailContainer);
+          document.getElementById('overlay').classList.remove('d-none');
           isEmailValid = true;
+          document.getElementById('overlay').classList.add('d-none');
         } else {
           emailStatus.setAttribute('aria-describedby', 'is-error-status');
           showError(self, emailContainer);
+          document.getElementById('overlay').classList.add('d-none');
         }
         manageFocus();
       }, 5000);
     }
 
   }, true);
+
+  addUser.addEventListener('click', restoreForm);
 
   contactUs.addEventListener('submit', validateForm);
 

@@ -1040,8 +1040,12 @@
     <h3 id="contact-description" class="subtitle is-5 has-text-centered">Don't hesitate, ask anything</h3>
 
     <div aria-live="polite" id="status-wrapper">
-      <span id="is-success-message" class="visuallyhidden">New account was created!</span>
-      <span id="is-error-message" class="visuallyhidden">Sorry cannot create a new account: Please fix the errors and retry</span>
+      <div id="is-success-message" class="visuallyhidden has-text-centered">New account was created!</div>
+      <div id="is-error-message" class="visuallyhidden has-text-centered">Sorry cannot create a new account: Please fix the errors and retry</div>
+      <div class="has-text-centered">
+        <button class="add-new-user button is-link d-none">Add New User</button>
+      </div>
+
     </div>
     <div class="container">
       <form id="form-contact-us" action="#" method="POST" class="column is-half is-offset-one-quarter box" aria-labelledby="contact-us">
@@ -1322,6 +1326,9 @@
     </div>
   </div>
 </footer>
+<div id="overlay" class="d-none">
+  <div id="loader"></div>
+</div>
 
   <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
   <script async src="js/custom.js"></script>
