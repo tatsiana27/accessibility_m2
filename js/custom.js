@@ -18,8 +18,8 @@
   const addUser = document.querySelector('.add-new-user');
 
 
-  const validateForm = function(e) {
-    e.preventDefault();
+  const validateForm = function() {
+   // e.preventDefault();
 
     let isValidForm = true;
     let isFirstNameValid = false;
@@ -27,9 +27,20 @@
     let errorMessage = '';
     const phonePattern = /^\d{11}$/;
     const yearBirthPattern = /^\d{4}$/;
+    const emailPattern = /^[^@]+@[^@.]+\.[^@]+$/;
     const user = {};
     const users = getUsers();
-    const { username, firstName, lastName, address, phone, yearBirth } = this.elements;
+
+    const username = contactUs.querySelector('#username');
+    const firstName = contactUs.querySelector('#firstName');
+    const lastName = contactUs.querySelector('#lastName');
+    const address = contactUs.querySelector('#address');
+    const phone = contactUs.querySelector('#phone');
+    const yearBirth = contactUs.querySelector('#yearBirth');
+    const email = contactUs.querySelector('#email');
+
+
+    // const { firstName, lastName, address, phone, yearBirth } = this.elements;
 
     // if(users && users.length > 0) {
       if(isUserNameAvailable(username.value, users)) {
@@ -101,6 +112,14 @@
       resetError(phone, phone.parentElement);
     } else {
       showError(phone, phone.parentElement);
+      isValidForm = false;
+    }
+
+    if(email.value && email.value.match(emailPattern)) {
+      user.email = email.value;
+      resetError(email, email.parentElement);
+    } else {
+      showError(email, email.parentElement);
       isValidForm = false;
     }
 
@@ -234,38 +253,45 @@
 
   let isEmailValid = false;
 
-  email.addEventListener('blur', function() {
+  email.addEventListener('blur', function(e) {
     const emailPattern = /^[^@]+@[^@.]+\.[^@]+$/;
     const self = this;
     const emailContainer = this.parentElement;
     const emailStatus = emailContainer.querySelector('#email-status-validation');
 
-    if(!isEmailValid) {
-      self.focus();
-      emailStatus.setAttribute('aria-describedby', 'is-waiting');
-      document.getElementById('overlay').classList.remove('d-none');
+    if (self.value.length > 0) {
+      if(!isEmailValid) {
+        //self.focus();
+        emailStatus.setAttribute('aria-describedby', 'is-waiting');
+        document.getElementById('overlay').classList.remove('d-none');
 
-      setTimeout(function(){
-        if(self.value && self.value.match(emailPattern)) {
-          emailStatus.setAttribute('aria-describedby', 'is-success-status');
-          resetError(self, emailContainer);
-          document.getElementById('overlay').classList.remove('d-none');
-          isEmailValid = true;
-          document.getElementById('overlay').classList.add('d-none');
-        } else {
-          emailStatus.setAttribute('aria-describedby', 'is-error-status');
-          showError(self, emailContainer);
-          document.getElementById('overlay').classList.add('d-none');
-        }
-        manageFocus();
-      }, 5000);
+        setTimeout(function(){
+          if(self.value && self.value.match(emailPattern)) {
+            emailStatus.setAttribute('aria-describedby', 'is-success-status');
+            resetError(self, emailContainer);
+            document.getElementById('overlay').classList.remove('d-none');
+            isEmailValid = true;
+            document.getElementById('overlay').classList.add('d-none');
+
+          } else {
+            emailStatus.setAttribute('aria-describedby', 'is-error-status');
+            showError(self, emailContainer);
+            document.getElementById('overlay').classList.add('d-none');
+            validateForm();
+          }
+          manageFocus();
+        }, 2000);
+      }
     }
 
   }, true);
 
   addUser.addEventListener('click', restoreForm);
 
-  contactUs.addEventListener('submit', validateForm);
+  contactUs.addEventListener('submit', function (e) {
+    e.preventDefault();
+    validateForm();
+  });
 
   const keys = {
     end: 35,
