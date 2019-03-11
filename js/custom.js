@@ -259,7 +259,7 @@
     const emailContainer = this.parentElement;
     const emailStatus = emailContainer.querySelector('#email-status-validation');
 
-    if (self.value.length > 0) {
+    // if (self.value.length > 0) {
       if(!isEmailValid) {
         //self.focus();
         emailStatus.setAttribute('aria-describedby', 'is-waiting');
@@ -282,7 +282,7 @@
           manageFocus();
         }, 2000);
       }
-    }
+    // }
 
   }, true);
 
